@@ -6,8 +6,9 @@ public class String_All_P{
 		System.out.println("Enter String : ");
 		String s=sc.nextLine();
 		HashMap<Character,Integer> hm=new HashMap();
-		for(int i=0;i<=s.length()-1;i++){
-			char ch=s.charAt(i);
+		String s1=s.toLowerCase();
+		for(int i=0;i<=s1.length()-1;i++){
+			char ch=s1.charAt(i);
 			if(hm.containsKey(ch)){
 				hm.put(ch,hm.get(ch)+1);
 			}
