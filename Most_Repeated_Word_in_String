@@ -1,0 +1,34 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MostRepeatedWord {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a sentence: ");
+        String sentence = sc.nextLine().toLowerCase();
+
+        String[] words = sentence.split(" ");
+        HashMap<String, Integer> m = new HashMap<>();
+
+        for (int i = 0; i < words.length; i++) {
+            if (m.containsKey(words[i])) {
+                m.put(words[i], m.get(words[i]) + 1);
+            } else {
+                m.put(words[i], 1);
+            }
+        }
+
+        int maxcount = 0;
+        String max = "";
+
+        for (Map.Entry<String, Integer> m1 : m.entrySet()) {
+            if (m1.getValue() > maxcount) {
+                maxcount = m1.getValue();
+                max = m1.getKey();
+            }
+        }
+
+        System.out.println("Most Repeated Word: " + max);
+    }
+}
